@@ -31,3 +31,17 @@ class Person:
 
     def get_ticket(self):
         return self._ticket
+
+class Employee(Person): #calling the parent class to inherit from it
+    '''Class to represent an employee'''
+    #Constructor
+    def __init__(self, empID, nameP, age, gender):
+        super().__init__(nameP, age, gender) #inherits attributes from the parent class
+        self.__empID = empID
+
+    # Setters and getters
+    def set_empID(self, empID):
+        self.__empID = empID
+
+    def get_empID(self):
+        return self.__empID
