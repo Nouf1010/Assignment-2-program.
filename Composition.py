@@ -58,3 +58,25 @@ class Museum:
 
     def get_size(self):
         return self.__sizeM
+
+    #A function to create an exhibition hall
+    def create_exhibition_halls(self):
+        # ExhibitionHall objects are created INSIDE the museum and then stored in a list
+        exhibition_halls = [
+            ExhibitionHall("Hall 1", "Ground Floor", "Medium"),
+            ExhibitionHall("Hall 2", "First Floor", "Small")
+        ]
+        return exhibition_halls
+
+    #A function to add an exhibition hall to the museum
+    def add_exhibition_hall(self, hall):
+        self.__exhibition_halls.append(hall)
+
+    # Using the str function to represent the museum object as a string
+    def __str__(self):
+        museum_info = "Museum: " + self.__nameM + ", Location: " + self.__locationM + ", Size: " + self.__sizeM + "\n"
+        exhibition_halls_info = ""
+        #Using a for loop to iterate in the exhibition halls and join their string representations
+        for hall in self.__exhibition_halls:
+            exhibition_halls_info += str(hall) + "\n" #using += to add then assign right away
+        return museum_info + exhibition_halls_info
