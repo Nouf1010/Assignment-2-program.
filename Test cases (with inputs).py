@@ -171,3 +171,57 @@ except ValueError as e: #this will happen when the user enters an invalid value
     print("Error:", e) #printing what the error is
 finally:
     print("Execution completed.")
+
+
+#Unidirectional
+try:
+    while True: #using a while loop to make the user re-enter if it was invalid
+        name = input("Enter your name: ")
+        if not name.strip() or not name.isalpha():  # Check if the input is empty, contains only whitespace, or contains non-alphabetic characters
+            print("Name should only contain alphabetic characters and cannot be empty. Please enter your name.")
+        else:
+            break
+
+    while True: #using a while loop to make the user re-enter if it was invalid
+        try:
+            age = int(input("Enter your age: "))
+            if age < 0:
+                raise ValueError("Age cannot be negative.")
+            break
+        except ValueError: #this will happen when the user enters an invalid value
+            print("Invalid age. Please enter a valid positive integer.")
+
+    while True: ##using a while loop to make the user re-enter if it was invalid
+        gender = input("Enter your gender (Male/Female): ").capitalize()
+        if gender not in ["Male", "Female"]:
+            print("Invalid gender. Please enter either Male or Female.")
+        else:
+            break
+
+    while True: ##using a while loop to make the user re-enter if it was invalid
+        ticket_type = input("Enter ticket type (Adult/Senior/Child/Teacher/Student/Group): ")
+        ticket_type = ticket_type.lower()
+
+        if ticket_type not in ["adult", "senior", "child", "teacher", "student", "group"]:
+            print("Invalid ticket type. Please enter one of: Adult, Senior, Child, Teacher, Student, Group.")
+        else:
+            break
+
+    ticket_price = 63  # Default price for adult ticket
+
+    ticket = Ticket(ticketID=1, ticketType=ticket_type, price=ticket_price)
+    person = Person(nameP=name, age=age, gender=gender)
+
+    print("\nTicket Purchase Details:")
+    print("Name:", person.get_nameP())
+    print("Age:", person.get_age())
+    print("Gender:", person.get_gender())
+    print("Ticket Type:", ticket_type)
+    print("Ticket Price:", ticket.calculate_price(age)) #calculating the price based on age
+
+except ValueError as e: #this will happen when the user enters an invalid value
+    print("Error:", e) #printing what the error is
+except TypeError as e: #this will happen when the user inputs the wrong type
+    print("Error:", e) #printing what the error is
+finally:
+    print("Execution completed.")
