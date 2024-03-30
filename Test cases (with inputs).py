@@ -47,3 +47,51 @@ finally:
     # Print museum details including the new exhibition hall
     print(louvre)
 
+
+#Aggregation
+while True: #using a while loop to make the user re-enter if it was invalid
+    try:
+        # Get user input for the artwork
+        title = input("Enter the title of the artwork: ")
+        artist = input("Enter the name of the artist: ")
+        style = input("Enter the style of the artwork: ")
+
+        # Create an Artwork object
+        artwork = Artwork(title, artist, style)
+
+        # Get user input for the exhibition hall
+        while True: #using a while loop to make the user re-enter if it was invalid
+            hall_choice = input("Choose the exhibition hall (hall1 or hall2): ")
+            if hall_choice == "hall1":
+                hall_name = "Hall 1"
+                hall_location = "Ground Floor"
+                hall_size = "Medium"
+                break  # Exit the hall choice loop if the choice is valid
+            elif hall_choice == "hall2":
+                hall_name = "Hall 2"
+                hall_location = "First Floor"
+                hall_size = "Small"
+                break  # Exit the hall choice loop if the choice is valid
+            else:
+                print("Invalid hall choice. Please try again.")
+
+        # Create an ExhibitionHall object
+        hall = ExhibitionHall(hall_name, hall_location, hall_size)
+
+        # Add the artwork to the exhibition hall
+        hall.add_artwork(artwork)
+
+        # Print exhibition hall details including the artwork
+        print(hall)
+
+        break  # Exit the main loop if everything executed successfully
+
+    except ValueError as e: #this will happen when the user enters an invalid value
+        print("Error:", e) #printing what the error is
+        print("Please try again.")
+    except TypeError as e: #this will happen when the user inputs the wrong type
+        print("Error:", e) #printing what the error is
+        print("Please try again.")
+    finally:
+        print("Execution completed.")
+
