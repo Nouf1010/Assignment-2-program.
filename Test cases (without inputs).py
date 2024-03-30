@@ -32,3 +32,22 @@ hall1.add_artwork(starry_night)
 
 # Print exhibition hall details including artworks
 print(hall1)
+
+
+#---Inheritance (Showing the inheritance relationship)---
+# Creating instances of Person and Employee classes
+person1 = Person("Amy", 30, "Female")
+employee1 = Employee("EMP231", "Tim", 35, "Male")
+
+# Testing setters and getters for Person class
+print("Person 1 Details:")
+print("Name:", person1.get_nameP())
+print("Age:", person1.get_age())
+print("Gender:", person1.get_gender())
+
+# Testing setters and getters for Employee class
+print("\nEmployee 1 Details:")
+print("Employee ID:", employee1.get_empID())
+print("Name:", employee1.get_nameP())
+print("Age:", employee1.get_age())
+print("Gender:", employee1.get_gender())
