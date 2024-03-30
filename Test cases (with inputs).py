@@ -95,3 +95,79 @@ while True: #using a while loop to make the user re-enter if it was invalid
     finally:
         print("Execution completed.")
 
+
+#Inheritance
+try:
+    # Creating instances of Person and Employee classes with user inputs
+    while True: #using a while loop to make the user re-enter if it was invalid
+        person_name = input("Enter person's name: ")
+        if not person_name.isalpha():
+            print("Name should only contain alphabetic characters.")
+        else:
+            break
+
+    while True: #using a while loop to make the user re-enter if it was invalid
+        person_age = input("Enter person's age: ")
+        if not person_age.isdigit():
+            print("Age should be a positive integer.")
+        else:
+            person_age = int(person_age)
+            break
+
+    while True: #using a while loop to make the user re-enter if it was invalid
+        person_gender = input("Enter person's gender (Male/Female): ").capitalize()
+        if person_gender not in ["Male", "Female"]:
+            print("Gender should be Male or Female.")
+        else:
+            break
+
+    person1 = Person(person_name, person_age, person_gender)
+
+    while True: #using a while loop to make the user re-enter if it was invalid
+        emp_ID = input("Enter employee ID: ")
+        if not emp_ID:
+            print("Employee ID cannot be empty.")
+        else:
+            break
+
+    while True: #using a while loop to make the user re-enter if it was invalid
+        emp_name = input("Enter employee's name: ")
+        if not emp_name.isalpha():
+            print("Name should only contain alphabetic characters.")
+        else:
+            break
+
+    while True: #using a while loop to make the user re-enter if it was invalid
+        emp_age = input("Enter employee's age: ")
+        if not emp_age.isdigit():
+            print("Age should be a positive integer.")
+        else:
+            emp_age = int(emp_age)
+            break
+
+    while True: #using a while loop to make the user re-enter if it was invalid
+        emp_gender = input("Enter employee's gender (Male/Female): ").capitalize()
+        if emp_gender not in ["Male", "Female"]:
+            print("Gender should be Male or Female.")
+        else:
+            break
+
+    employee1 = Employee(emp_ID, emp_name, emp_age, emp_gender)
+
+    # Testing setters and getters for Person class
+    print("\nPerson 1 Details:")
+    print("Name:", person1.get_nameP()) #get from the person class
+    print("Age:", person1.get_age()) #get from the person class
+    print("Gender:", person1.get_gender()) #get from the person class
+
+    # Testing setters and getters for Employee class
+    print("\nEmployee 1 Details:")
+    print("Employee ID:", employee1.get_empID()) #get from the employee class
+    print("Name:", employee1.get_nameP()) #get from the person class
+    print("Age:", employee1.get_age()) #get from the person class
+    print("Gender:", employee1.get_gender()) #get from the person class
+
+except ValueError as e: #this will happen when the user enters an invalid value
+    print("Error:", e) #printing what the error is
+finally:
+    print("Execution completed.")
