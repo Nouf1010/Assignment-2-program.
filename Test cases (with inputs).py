@@ -46,3 +46,4 @@ except TypeError as e: #this will happen when the user inputs the wrong type
 finally:
     # Print museum details including the new exhibition hall
     print(louvre)
+
