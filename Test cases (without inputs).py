@@ -16,3 +16,19 @@ louvre.add_exhibition_hall(new_hall)
 
 # Print museum details including the new exhibition hall
 print(louvre)
+
+
+#---Aggregation (Adding new art)---
+# Create artworks
+mona_lisa = Artwork("Mona Lisa", "Leonardo da Vinci", "Renaissance")
+starry_night = Artwork("The Starry Night", "Vincent van Gogh", "Post-Impressionism")
+
+# Create an exhibition hall
+hall1 = ExhibitionHall("Hall 1", "Ground Floor", "Medium")
+
+# Add artworks to the exhibition hall
+hall1.add_artwork(mona_lisa)
+hall1.add_artwork(starry_night)
+
+# Print exhibition hall details including artworks
+print(hall1)
